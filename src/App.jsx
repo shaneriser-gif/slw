@@ -5,7 +5,7 @@ import AspectsView from './components/AspectsView/AspectsView'
 import DiaryView from './components/DiaryView/DiaryView'
 import ProgressView from './components/ProgressView/ProgressView'
 import LoadingScreen from './components/LoadingScreen/LoadingScreen'
-import { ASPECT_KEYS } from './data/aspectsData'
+import { ASPECT_KEYS } from './data/aspects'
 import { ru } from './locales/ru'
 import styles from './App.module.css'
 
