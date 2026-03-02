@@ -443,3 +443,196 @@
   color: #aaa;
   white-space: pre-wrap;
 }
+
+/* Practices Tab */
+.practicesContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.practicesContainer .card {
+  cursor: default;
+}
+
+.practicesContainer .card:hover {
+  box-shadow: none;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px;
+}
+
+.skillItem {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.6;
+  padding: 4px 0;
+}
+
+.practiceItem {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #0d0d2a;
+}
+
+.practiceItem:last-child {
+  border-bottom: none;
+}
+
+.practiceName {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.practiceDesc {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.7;
+}
+
+.integrationDesc {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.integrationPractice {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #0d0d2a;
+}
+
+.integrationPractice:last-child {
+  border-bottom: none;
+}
+
+.archetypePathItem {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #0A0A0F;
+  border: 1px solid #1a1a2e;
+}
+
+.archetypePathName {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.archetypePathSection {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.archetypePathTransition {
+  font-size: 11px;
+  font-style: italic;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #1a1a2e;
+}
+
+/* Synergy Tab */
+.synergyContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.synergyContainer .card {
+  cursor: default;
+}
+
+.synergyContainer .card:hover {
+  box-shadow: none;
+}
+
+.synergyItem {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #0d0d2a;
+}
+
+.synergyItem:last-child {
+  border-bottom: none;
+}
+
+.synergyAspects {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.synergyDesc {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.7;
+}
+
+.polysemyIntro {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.polysemyItem {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #0d0d2a;
+}
+
+.polysemyItem:last-child {
+  border-bottom: none;
+}
+
+.polysemyWord {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.polysemyVariants {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.6;
+}
+
+.somaticSection {
+  margin-bottom: 16px;
+}
+
+.somaticSection:last-child {
+  margin-bottom: 0;
+}
+
+.somaticLabel {
+  font-size: 9px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.somaticItem {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  padding-left: 8px;
+  border-left: 1px solid #1a1a2e;
+}
+
+.somaticItem span {
+  flex-shrink: 0;
+}

@@ -48,6 +48,8 @@ export default function AspectsView({ selectedAspect, onAspectSelect, scores, on
     ['theory', 'Теория'],
     ['assess', 'Самооценка'],
     ['goals', 'Цели'],
+    ['practices', 'Практики'],
+    ['synergy', 'Синергия'],
     ['diary', 'Дневник']
   ]
 
@@ -224,6 +226,132 @@ export default function AspectsView({ selectedAspect, onAspectSelect, scores, on
               </div>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* Practices Tab */}
+      {tab === 'practices' && (
+        <div className={styles.practicesContainer}>
+          {/* Навыки (только для БС) */}
+          {data.skills && data.skills.length > 0 && (
+            <div className={styles.card} style={{ borderColor: `${color}22` }}>
+              <div className={styles.cardTitle} style={{ color }}>Психологические Навыки</div>
+              <div className={styles.skillsGrid}>
+                {data.skills.map((skill, i) => (
+                  <div key={i} className={styles.skillItem}>
+                    <span style={{ color: `${color}88` }}>◦ </span>{skill}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Практики и Упражнения */}
+          {data.practices && data.practices.length > 0 && (
+            <div className={styles.card} style={{ borderColor: `${color}22` }}>
+              <div className={styles.cardTitle} style={{ color }}>Практики и Упражнения</div>
+              {data.practices.map((practice, i) => (
+                <div key={i} className={styles.practiceItem}>
+                  <div className={styles.practiceName} style={{ color }}>{i + 1}. {practice.name}</div>
+                  <div className={styles.practiceDesc}>{practice.desc}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Интеграция с Противоположностью */}
+          {data.integration && (
+            <div className={styles.card} style={{ borderColor: `${color}44`, boxShadow: `0 0 20px ${color}22` }}>
+              <div className={styles.cardTitle} style={{ color }}>
+                Интеграция с Противоположностью ({data.integration.opposite})
+              </div>
+              <p className={styles.integrationDesc}>{data.integration.desc}</p>
+              {data.integration.practices && data.integration.practices.map((p, i) => (
+                <div key={i} className={styles.integrationPractice}>
+                  <div className={styles.practiceName} style={{ color }}>{p.name}</div>
+                  <div className={styles.practiceDesc}>{p.desc}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Путь Становления Архетипов (только для БС) */}
+          {data.archetypePath && data.archetypePath.length > 0 && (
+            <div className={styles.card} style={{ borderColor: `${color}44`, gridColumn: '1/-1' }}>
+              <div className={styles.cardTitle} style={{ color }}>Путь Становления Архетипов</div>
+              {data.archetypePath.map((path, i) => (
+                <div key={i} className={styles.archetypePathItem}>
+                  <div className={styles.archetypePathName} style={{ color }}>{path.name}</div>
+                  <div className={styles.archetypePathSection}>
+                    <b>Предпосылка:</b> {path.prerequisite}
+                  </div>
+                  <div className={styles.archetypePathSection}>
+                    <b>Главный Урок:</b> {path.lesson}
+                  </div>
+                  <div className={styles.archetypePathTransition} style={{ color: `${color}88` }}>
+                    → {path.transition}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Synergy Tab */}
+      {tab === 'synergy' && (
+        <div className={styles.synergyContainer}>
+          {/* Взаимодействие с Другими Аспектами */}
+          {data.synergy && data.synergy.length > 0 && (
+            <div className={styles.card} style={{ borderColor: `${color}22` }}>
+              <div className={styles.cardTitle} style={{ color }}>Взаимодействие с Другими Аспектами</div>
+              {data.synergy.map((syn, i) => (
+                <div key={i} className={styles.synergyItem}>
+                  <div className={styles.synergyAspects} style={{ color }}>{syn.aspects}: {syn.name}</div>
+                  <div className={styles.synergyDesc}>{syn.desc}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Ложные Друзья Аспекта */}
+          {data.polysemy && data.polysemy.length > 0 && (
+            <div className={styles.card} style={{ borderColor: `${color}22` }}>
+              <div className={styles.cardTitle} style={{ color }}>Ложные Друзья Аспекта (Полисемия)</div>
+              <p className={styles.polysemyIntro}>
+                Слова, которые могут относиться к разным аспектам в зависимости от контекста:
+              </p>
+              {data.polysemy.map((poly, i) => (
+                <div key={i} className={styles.polysemyItem}>
+                  <div className={styles.polysemyWord} style={{ color }}>{poly.word}</div>
+                  <div className={styles.polysemyVariants}>{poly.variants}</div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Соматические Маркеры */}
+          {data.somatic && (
+            <div className={styles.card} style={{ borderColor: `${color}22` }}>
+              <div className={styles.cardTitle} style={{ color }}>Соматические Маркеры (Как аспект "живет" в теле)</div>
+              <div className={styles.somaticSection}>
+                <div className={styles.somaticLabel} style={{ color: '#f87171' }}>ТЕНЬ</div>
+                {data.somatic.shadow.map((s, i) => (
+                  <div key={i} className={styles.somaticItem}>
+                    <span style={{ color: '#f87171' }}>›</span> {s}
+                  </div>
+                ))}
+              </div>
+              <div className={styles.somaticSection}>
+                <div className={styles.somaticLabel} style={{ color: '#4ade80' }}>ДАР</div>
+                {data.somatic.gift.map((g, i) => (
+                  <div key={i} className={styles.somaticItem} style={{ borderLeftColor: `${color}44` }}>
+                    <span style={{ color: '#4ade80' }}>›</span> {g}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
